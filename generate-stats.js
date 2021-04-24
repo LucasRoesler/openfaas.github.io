@@ -137,6 +137,11 @@ function postRequest() {
 			console.log('Github stats file generated');
 		});
 
+
+		// screen data to remove users that have asked to be removed or
+		// need to be removed for any other reason
+		delete resp.byLogin["mjallday"]
+
 		fs.writeFile('js/contributors.js', generateTemplate(resp.byLogin), 'utf8', () => {
 			console.log('js/contributors.js file generated');
 		});
